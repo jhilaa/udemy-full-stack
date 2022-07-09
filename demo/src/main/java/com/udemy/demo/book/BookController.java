@@ -26,12 +26,12 @@ public class BookController {
     @DeleteMapping(value="/books/{bookId}")
     public ResponseEntity deleteBook (@PathVariable("bookID") String bookId){
         //TODO delete depuis bookId
-        return new ResponseEntity(book, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping(value="/books/{bookId}")
-    public ResponseEntity updateBook (@PathVariable("bookID") String bookId){
+    public ResponseEntity updateBook (@PathVariable("bookID") String bookId, Book book){
         //TODO récup du book (nelle version) et update depuis bookId
-        return new ResponseEntity(book, HttpStatus.CREATED);
+        return new ResponseEntity(book, HttpStatus.OK);
     }
 }
