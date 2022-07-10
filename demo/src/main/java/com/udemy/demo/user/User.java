@@ -1,7 +1,11 @@
 package com.udemy.demo.user;
 
+import javax.validation.constraints.Size;
+
 public class User {
+    @Size(min=2,max=25,message="Le nom doit faire entre 2 et 25 caractères")
     private String firstname;
+    @Size(min=2,max=25,message="Le nom doit faire entre 2 et 25 caractères")
     private String lastname;
     private String email;
     private String password;

@@ -2,7 +2,11 @@ package com.udemy.demo.book;
 
 import com.udemy.demo.category.Category;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Book {
+    @NotBlank
     private String title;
     private Category category;
     private BookStatus status;
@@ -35,4 +39,8 @@ public class Book {
 
     public void setStatus(BookStatus status) { this.status = status;  }
 
+    @Override
+    public String toString() {
+        return this.title + " / " + this.category;
+    }
 }
