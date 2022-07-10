@@ -1,7 +1,10 @@
-package com.udemy.demo.book;
+package com.udemy.demo.category;
 
 public class Category {
     private String label;
+
+    public Category() {
+    }
 
     public Category(String label) {
         this.label = label;
@@ -14,4 +17,10 @@ public class Category {
     public void setLabel(String label) {
         this.label = label;
     }
+
+    @Override
+    public String toString() {
+        return this.label;
+    }
+
 }

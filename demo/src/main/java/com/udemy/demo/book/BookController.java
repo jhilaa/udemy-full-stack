@@ -1,5 +1,6 @@
 package com.udemy.demo.book;
 
+import com.udemy.demo.category.Category;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +18,19 @@ public class BookController {
         return new ResponseEntity(Arrays.asList(book), HttpStatus.OK);
     }
 
+    @GetMapping(value="/books/{bookId}/status")
+    public ResponseEntity bookStatus(){
+        Book book = new Book();
+        book.setTitle("MyBook");
+        book.setCategory(new Category("MyCategory"));
+        book.setStatus(BookStatus.FREE);
+        return new ResponseEntity(book.getStatus(), HttpStatus.OK);
+    }
+
     @PostMapping(value="/books")
-    public ResponseEntity addBook(Book book){
+    public ResponseEntity addBook(@RequestBody Book book){
         //TODO persist
-        return new ResponseEntity(book, HttpStatus.CREATED);
+        return new ResponseEntity(book.toString(), HttpStatus.CREATED);
     }
 
     @DeleteMapping(value="/books/{bookId}")
